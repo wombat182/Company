@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Websites made by us — Walrus</title>
+  <link rel="icon" type="image/png" href="walrus-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #F5EFE0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'EB Garamond', Garamond, serif;
+    }
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: #3E2C1C;
+      text-decoration: none;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      letter-spacing: 0.02em;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: -3px;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    nav a:hover { opacity: 0.55; }
+    nav a:hover::after { transform: scaleX(1); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="https://paragrafer.no" target="_blank" rel="noopener">Paragrafer.no</a>
+    <a href="https://rettsregel.no" target="_blank" rel="noopener">Rettsregel.no</a>
+  </nav>
+</body>
+</html>

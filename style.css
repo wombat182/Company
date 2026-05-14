@@ -1,5 +1,5 @@
 /* ===========================================================
-   Wombat — site styles
+   Walrus — site styles
    =========================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
@@ -48,11 +48,15 @@ main {
 /* On the home page the layout pushes the logo toward the top
    third and the nav links toward the bottom, with empty space
    between. */
+/* On the home page, cluster logo + wordmark + nav as a single
+   composition centered vertically. The natural margin between
+   the logo-block and the nav handles spacing — no dead zone. */
 main.home {
-  justify-content: space-between;
-  padding-top: 10vh;
-  padding-bottom: 2rem;
-  max-width: 960px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  max-width: 880px;
 }
 
 .home {
@@ -64,9 +68,12 @@ main.home {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  /* Gap to nav: ~2.5x wordmark line-height. Reads as connected
+     to the logo, not anchored to a far-away footer. */
+  margin-bottom: 7rem;
 }
 
-#wombat-mark {
+#walrus-mark {
   display: block;
   width: 16vw;
   max-width: 204px;
@@ -81,7 +88,7 @@ main.home {
   image-rendering: crisp-edges;
 }
 
-#wombat-mark:hover {
+#walrus-mark:hover {
   transform: scale(1.06) translateY(-6px) !important;
 }
 
@@ -96,7 +103,7 @@ main.home {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #wombat-mark { transform: none !important; }
+  #walrus-mark { transform: none !important; }
 }
 
 /* ============== NAVIGATION ============== */
@@ -219,7 +226,7 @@ nav.primary a:hover::after {
   margin-top: 0.5rem;
 }
 
-/* ============== WOMBATS PHOTOS ============== */
+/* ============== WALRUSES PHOTOS ============== */
 
 .photos {
   display: grid;
@@ -325,7 +332,7 @@ footer {
   body { font-size: 17px; }
   main { padding: 4rem 1.5rem; }
   main.home { padding-top: 6vh; padding-bottom: 3rem; }
-  #wombat-mark { width: 32vw; min-width: 130px; }
+  #walrus-mark { width: 32vw; min-width: 130px; }
   nav.primary {
     gap: 1.25rem;
     flex-wrap: wrap;
@@ -334,4 +341,51 @@ footer {
   nav.primary a { font-size: 1.05rem; }
   .content p { font-size: 1.1rem; }
   .content p.lead { font-size: 1.25rem; }
+}
+
+/* ============== BUSINESSES PAGE ============== */
+
+.business-category {
+  margin-top: 2.5rem;
+}
+
+.category-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown-soft);
+  margin-bottom: 1.75rem;
+  font-style: normal;
+}
+
+.business-item {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.business-item:last-child {
+  border-bottom: none;
+}
+
+.business-item a {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--brown);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--brown);
+  padding-bottom: 1px;
+  transition: opacity 0.3s ease;
+}
+
+.business-item a:hover {
+  opacity: 0.55;
+}
+
+.business-item p {
+  margin-bottom: 0;
+  color: var(--brown-soft);
+  font-size: 1.05rem;
 }

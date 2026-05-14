@@ -3,87 +3,187 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wombat</title>
-  <meta name="description" content="Wombat AS is a Norwegian company.">
-
-  <meta property="og:title" content="Wombat">
-  <meta property="og:description" content="A Norwegian company.">
-  <meta property="og:image" content="wombat-logo.png">
+  <title>Walrus</title>
+  <meta name="description" content="Walrus AS">
+  <meta property="og:title" content="Walrus">
+  <meta property="og:description" content="Walrus AS">
+  <meta property="og:image" content="walrus-logo.png">
   <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="walrus-logo.png">
+  <link rel="apple-touch-icon" href="walrus-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <link rel="icon" type="image/png" href="wombat-logo.png">
-  <link rel="apple-touch-icon" href="wombat-logo.png">
-  <link rel="stylesheet" href="style.css">
+    :root {
+      --cream: #F5EFE0;
+      --brown: #3E2C1C;
+      --brown-faint: rgba(62, 44, 28, 0.32);
+    }
+
+    html { background: var(--cream); }
+
+    body {
+      background: var(--cream);
+      color: var(--brown);
+      font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.038;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10vh 2rem 6vh;
+    }
+
+    #walrus-mark {
+      display: block;
+      width: clamp(220px, 46vmin, 400px);
+      height: auto;
+      cursor: default;
+      transform-origin: center bottom;
+      margin-bottom: 7vh;
+      opacity: 0;
+      animation: rise 1s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #walrus-mark { transform: none !important; animation: none; opacity: 1; }
+      nav a { animation: none !important; opacity: 1 !important; }
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: var(--brown);
+      text-decoration: none;
+      font-style: normal;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      letter-spacing: 0.02em;
+      position: relative;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    nav a:nth-child(1) { animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards; }
+    nav a:nth-child(2) { animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.70s forwards; }
+    nav a:nth-child(3) { animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.85s forwards; }
+    nav a:nth-child(4) { animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.00s forwards; }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: -3px;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    nav a:hover { opacity: 0.55; }
+    nav a:hover::after { transform: scaleX(1); }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--brown-faint);
+      font-variant: small-caps;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 8vh 1.5rem 5vh; }
+      #walrus-mark { width: clamp(180px, 60vw, 280px); margin-bottom: 6vh; }
+      nav a { font-size: 1.05rem; }
+    }
+  </style>
 </head>
 <body>
-  <main class="home">
-    <div class="logo-block">
-      <img id="wombat-mark" src="wombat-logo.png" alt="Wombat">
-      <div class="wordmark-text">wombat</div>
-    </div>
-    <nav class="primary">
+  <main>
+    <img id="walrus-mark" src="walrus-logo.png" alt="Walrus">
+    <nav>
       <a href="about.html">About our company</a>
-      <a href="wombats.html">Photographs of wombats</a>
+      <a href="walruses.html">Photographs of wild walruses</a>
+      <a href="businesses.html">Websites made by us</a>
       <a href="https://docs.google.com/spreadsheets/d/1r58V9bGHoJZDuZ3yRSJWuCCVVie4632kGpdcs40XNWY/edit?gid=370596621#gid=370596621" target="_blank" rel="noopener">For the partners</a>
     </nav>
   </main>
-  <footer>
-    Wombat AS &middot; Org.nr 925&nbsp;629&nbsp;634
-  </footer>
+  <footer>Walrus AS &middot; Org.nr 925&nbsp;629&nbsp;634</footer>
 
   <script>
   (function() {
-    const wombat = document.getElementById('wombat-mark');
-    if (!wombat) return;
+    const walrus = document.getElementById('walrus-mark');
+    if (!walrus) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    let startTime = Date.now();
-    let isHovering = false;
+    let startTime = Date.now(), isHovering = false;
 
-    wombat.addEventListener('mouseenter', () => isHovering = true);
-    wombat.addEventListener('mouseleave', () => isHovering = false);
+    walrus.addEventListener('mouseenter', () => { isHovering = true; });
+    walrus.addEventListener('mouseleave', () => { isHovering = false; startTime = Date.now(); });
 
     function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
     function easeInQuad(t) { return t * t; }
+    function easeInOutQuad(t) { return t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2)/2; }
 
     function animate() {
       if (!isHovering) {
         const t = (Date.now() - startTime) / 1000;
+        const breatheScale = 1 + 0.013 * Math.sin((t / 5) * Math.PI * 2);
+        const hopCycle = t % 28;
+        let hopY = 0, hopTilt = 0, hopScale = 1;
 
-        // BREATHING — gentle continuous pulse (subtle)
-        const breatheScale = 1 + 0.0085 * Math.sin((t / 6) * Math.PI * 2);
-
-        // THE HOP — every 35 seconds, vertical only, with a small tilt
-        const hopCycle = t % 35;
-        let hopY = 0;
-        let hopTilt = 0;
-        let hopScale = 1;
-
-        if (hopCycle < 32) {
-          // resting
-        } else if (hopCycle < 32.4) {
-          const p = (hopCycle - 32) / 0.4;
-          hopY = 3 * easeInQuad(p);
-          hopTilt = -1.5 * easeInQuad(p);
-          hopScale = 1 - 0.02 * easeInQuad(p);
-        } else if (hopCycle < 32.9) {
-          const p = (hopCycle - 32.4) / 0.5;
-          hopY = 3 - (3 + 18) * easeOutCubic(p);
-          hopTilt = -1.5 + (1.5 + 2) * easeOutCubic(p);
-          hopScale = 0.98 + 0.04 * easeOutCubic(p);
-        } else if (hopCycle < 33.3) {
-          const p = (hopCycle - 32.9) / 0.4;
-          hopY = -18 + 18 * easeInQuad(p);
-          hopTilt = 0.5 - 0.5 * easeInQuad(p);
-          hopScale = 1.02 - 0.02 * easeInQuad(p);
-        } else {
-          const p = Math.min(1, (hopCycle - 33.3) / 0.5);
-          hopY = 2 * Math.sin(p * Math.PI) * (1 - p) * 0.4;
+        if (hopCycle >= 25 && hopCycle < 25.7) {
+          const p = (hopCycle - 25) / 0.7;
+          hopY = 4 * easeInOutQuad(p); hopTilt = -3 * easeInOutQuad(p); hopScale = 1 - 0.03 * easeInOutQuad(p);
+        } else if (hopCycle >= 25.7 && hopCycle < 26.3) {
+          const p = (hopCycle - 25.7) / 0.6;
+          hopY = 4 - 26 * easeOutCubic(p); hopTilt = -3 + 6 * easeOutCubic(p); hopScale = 0.97 + 0.06 * easeOutCubic(p);
+        } else if (hopCycle >= 26.3 && hopCycle < 26.7) {
+          const p = (hopCycle - 26.3) / 0.4;
+          hopY = -22 + 22 * easeInQuad(p); hopTilt = 3 - 3 * easeInQuad(p); hopScale = 1.03 - 0.06 * easeInQuad(p);
+        } else if (hopCycle >= 26.7 && hopCycle < 27.4) {
+          const p = (hopCycle - 26.7) / 0.7;
+          const decay = Math.exp(-3.5 * p);
+          hopTilt = 2.5 * Math.sin(p * Math.PI * 3) * decay;
+          hopScale = 1 + 0.015 * Math.cos(p * Math.PI * 4) * decay;
         }
 
-        const totalScale = breatheScale * hopScale;
-        wombat.style.transform =
-          `translateY(${hopY}px) rotate(${hopTilt}deg) scale(${totalScale})`;
+        walrus.style.transform = `translateY(${hopY}px) rotate(${hopTilt}deg) scale(${breatheScale * hopScale})`;
       }
       requestAnimationFrame(animate);
     }

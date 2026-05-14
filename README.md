@@ -1,4 +1,4 @@
-# Wombat — site
+# Walrus — site
 
 Three pages plus a 404. HTML, CSS, and a small JavaScript animation on the home page.
 
@@ -6,14 +6,14 @@ Three pages plus a 404. HTML, CSS, and a small JavaScript animation on the home 
 
 - `index.html` — home (animated silhouette + wordmark + nav)
 - `about.html` — company description + contact
-- `wombats.html` — wild wombat photo placeholders
+- `walruses.html` — five wild walrus photographs from Unsplash
 - `404.html` — graceful page for mistyped URLs
 - `style.css` — all styling
-- `wombat-logo.png` — silhouette only, transparent background, 3x resolution for retina
+- `walrus-logo.png` — silhouette only, transparent background, 3x resolution for retina
 
 ## Logo structure
 
-The PNG is just the wombat silhouette — no wordmark, no background. The "wombat" text on the home page is real HTML in EB Garamond. So:
+The PNG is just the walrus silhouette — no wordmark, no background. The "walrus" text on the home page is real HTML in EB Garamond. So:
 
 - Only the animal moves; the wordmark stays still
 - No color mismatch possible (transparent background)
@@ -21,12 +21,12 @@ The PNG is just the wombat silhouette — no wordmark, no background. The "womba
 
 ## Animation
 
-Just two things now:
+Two layers of motion:
 
-1. **Breathe** — gentle continuous scale pulse
-2. **Hop** — once every 35 seconds, the wombat does a quick cute hop. Slight crouch + lean back, jump up with a tilt forward, land and settle. ~1.3 seconds total. No horizontal movement.
+1. **Breathing** — gentle continuous heave, slightly visible (heavy animal). 5-second cycle.
+2. **Hop** — every 25 seconds the walrus does its move: heavy crouch with a left lean, launches into a small jump, swings to a right lean mid-air, lands with a squish, then a dampened wobble until it settles. ~2.4 seconds total. Captures "fat animal trying to be graceful" comedy.
 
-Hover pauses everything and perks up the wombat. `prefers-reduced-motion` disables all motion.
+Hover pauses everything and perks the walrus up. `prefers-reduced-motion` disables all motion.
 
 ## Editing
 
@@ -34,8 +34,8 @@ Hover pauses everything and perks up the wombat. `prefers-reduced-motion` disabl
 - **About paragraph**: edit `<p>` tags in `.content` div in `about.html`
 - **Org.nr**: search `925&nbsp;629&nbsp;634` across HTML files
 - **Partners link**: search `docs.google.com` in `index.html`
-- **Add a photo**: in `wombats.html`, replace `<div class="placeholder">photo 1</div>` with `<img src="myphoto.jpg" alt="">`
-- **Wombat size**: in `style.css`, find `#wombat-mark` and adjust `max-width` (currently 280px) or `width: 22vw`
+- **Add or change a photo**: in `walruses.html`, edit any `<figure class="photo">` block. Photos are loaded directly from Unsplash CDN URLs (`images.unsplash.com/photo-...`). Captions are credited to the photographer. To swap in your own photo, replace the `<img src="...">` URL and update the `<figcaption>` text. To add a new photo, copy an existing `<figure>` block.
+- **Walrus size**: in `style.css`, find `#walrus-mark` and adjust `max-width` (currently 280px) or `width: 22vw`
 
 ## Colors
 
